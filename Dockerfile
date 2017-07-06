@@ -7,4 +7,7 @@ RUN apt-get update && \
 
 COPY ./nodejs /var/nodejs/
 
-CMD nodejs /var/nodejs/main.js
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
